@@ -59,12 +59,11 @@ def processRequest(req):
 def makeJson(req):
 	result = req.get("result")
 	parameters = result.get("parameters")
-	goods = parameters.get("goods")
+	goods = parameters.get("inventory")
 	
 	if goods is None:
 		return {}
-	print("goods")
-	print(type(goods))
+	
 	productResult = "products/" + goods
 	data = wcapi.get(productResult).json()
 	
